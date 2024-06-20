@@ -10,6 +10,10 @@ export const Card = styled.section`
   ${ButtonLink} {
     text-decoration: none;
   }
+
+  > img {
+    width: 100%;
+  }
 `
 
 export const ContainerTitulo = styled.div`

@@ -1,7 +1,8 @@
 import Carrinho from '../../models/Carrinho'
 import Banner from '../../components/Banner/BannerPerfil'
-import pizza from '../../assets/images/pizza.png'
 import ProductPerfil from '../../ProductPerfil'
+import Header from '../../components/Header'
+import pizza from '../../assets/images/pizza.png'
 
 const itens: Carrinho[] = [
   {
@@ -50,6 +51,7 @@ const itens: Carrinho[] = [
 
 const Perfil = () => (
   <>
+    <Header />
     <Banner />
     <ProductPerfil carrinho={itens} />
   </>

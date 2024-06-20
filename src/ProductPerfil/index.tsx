@@ -1,6 +1,6 @@
 import Products from '../Products'
-import Carrinho from '../models/Carrinho'
 import { Container, List } from './style'
+import Carrinho from '../models/Carrinho'
 
 export type Props = {
   carrinho: Carrinho[]

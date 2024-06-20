@@ -5,7 +5,6 @@ import { ButtonContainer } from '../components/Button/styles'
 export const Card = styled.div`
   background-color: ${cores.rosa};
   margin-bottom: 48px;
-  margin-top: 60px;
   padding: 8px;
 
   ${ButtonContainer} {

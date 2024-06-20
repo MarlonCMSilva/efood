@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom'
+
 import styled from 'styled-components'
 import { cores } from '../../styles'
-
-import { Link } from 'react-router-dom'
 
 export const ButtonContainer = styled.button`
   max-width: 300px;

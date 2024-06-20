@@ -1,6 +1,6 @@
+import SaibaMais from '../../models/About'
 import ProductsHome from '../ProductsHome'
 import { Container, List } from './styles'
-import SaibaMais from '../../models/About'
 
 export type Props = {
   saiba: SaibaMais[]

@@ -7,6 +7,7 @@ export const ImagemBanner = styled.div`
   display: block;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-bottom: 20px;
 `
 
 export const Titulo = styled.h1`

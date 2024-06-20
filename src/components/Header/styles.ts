@@ -7,15 +7,15 @@ export const HeaderBar = styled.header`
   display: flex;
 
   img {
-    padding-top: 60px;
     display: flex;
-    margin-left: 440px;
   }
 `
 
 export const Links = styled.ul`
   display: flex;
+  margin-top: 60px;
   justify-content: space-between;
+  align-items: center;
 `
 export const LinkItem = styled.li`
   font-size: 18px;
