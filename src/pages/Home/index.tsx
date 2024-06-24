@@ -1,7 +1,7 @@
 import SaibaMais from '../../models/About'
 
 import ProductList from '../../components/ProductList'
-import BannerHome from '../../components/Banner/BannerHome'
+import BannerHome from '../../components/Banner'
 import estrela from '../../assets/images/estrela.png'
 import comidaJaponesa from '../../assets/images/Japones.svg'
 import comidaItaliana from '../../assets/images/italiana.svg'
