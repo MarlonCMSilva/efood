@@ -10,6 +10,7 @@ export const ButtonContainer = styled.button`
   font-size: 14px;
   font-weight: bold;
   padding: 8px 16px;
+  border: 1px solid ${cores.rosa};
 `
 
 export const ButtonLink = styled(Link)`
