@@ -10,13 +10,11 @@ const Header = () => (
     <div className="container">
       <nav>
         <Links>
-          <LinkItem>Restaurantes</LinkItem>
-          <LinkItem>
-            <Link to="/">
-              <img src={logo} alt="EFOOD" />
-            </Link>
+          <LinkItem to={`/`}>Restaurantes</LinkItem>
+          <LinkItem to={`/`}>
+            <img src={logo} alt="EFOOD" />
           </LinkItem>
-          <LinkItem>0 Produtos no carrinho</LinkItem>
+          <LinkItem to={'/'}>0 Produtos no carrinho</LinkItem>
         </Links>
       </nav>
     </div>

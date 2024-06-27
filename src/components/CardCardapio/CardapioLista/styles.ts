@@ -1,30 +1,51 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
-import { ButtonContainer } from '../Button/styles'
+import { cores } from '../../../styles'
 
 export const Card = styled.div`
   background-color: ${cores.rosa};
-  margin-bottom: 48px;
   padding: 8px;
+  width: 320px;
+  height: 100%;
 
-  ${ButtonContainer} {
-    border: 1px solid ${cores.rosa};
-    width: 100%;
+  > img {
+    width: 300px;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 `
 
 export const Title = styled.h3`
   color: ${cores.textoBotao};
   font-size: 18px;
-  padding: 8px;
+  margin-bottom: 8px;
 `
 
 export const Descricao = styled.p`
   color: ${cores.textoBotao};
   font-size: 14px;
   line-height: 22px;
-  display: block;
+  width: 304px;
+  heith: 88px;
   padding: 8px;
+  margin-bottom: 8px;
+`
+
+export const ButtonContainer = styled.button`
+  border: 1px solid ${cores.rosa};
+  width: 100%;
+  max-width: 300px;
+  background-color: ${cores.textoBotao};
+  color: ${cores.rosa};
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border: 1px solid ${cores.rosa};
 `
 
 export const Modal = styled.div`
@@ -36,7 +57,6 @@ export const Modal = styled.div`
   z-index: 1;
   display: none;
   align-items: center;
-  justify-content: center;
 
   &.visivel {
     display: flex;
@@ -52,19 +72,20 @@ export const Modal = styled.div`
   }
 `
 export const ContainerModal = styled.div`
+  background-color: ${cores.rosa};
+  height: 340px;
+  z-index: 1;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
-  max-width: 1024px;
-  height: 340px;
-  z-index: 1;
-  background-color: ${cores.rosa};
 
   img {
     width: 280px;
     height: 280px;
     object-fit: cover;
     margin: 32px;
+    display: block;
   }
 
   h3 {
@@ -75,14 +96,15 @@ export const ContainerModal = styled.div`
   p {
     color: ${cores.branca};
     width: 600px;
+    heioght: 180px;
     line-height: 22px;
     font-size: 14px;
-    margin: 16px 32px 16px 0;
+    margin: 20px 32px 20px 0;
+    display: block;
   }
 
   ${ButtonContainer} {
-    margin-bottom: 60px;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 `
-// width: 280px;
-// height: 280px;

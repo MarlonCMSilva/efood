@@ -1,60 +1,29 @@
-import Carrinho from '../../models/Carrinho'
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+
 import Hero from '../../components/Hero'
-import ProductPerfil from '../../components/ProductPerfil'
+import CardCardapio from '../../components/CardCardapio/Cardapio'
 import Header from '../../components/Header'
-import pizza from '../../assets/images/pizza.png'
+import { Cardapio, ProdutoNaHome } from '../Home'
 
-const itens: Carrinho[] = [
-  {
-    id: 1,
-    titulo: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizza
-  },
-  {
-    id: 2,
-    titulo: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizza
-  },
-  {
-    id: 3,
-    titulo: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizza
-  },
-  {
-    id: 4,
-    titulo: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizza
-  },
-  {
-    id: 5,
-    titulo: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizza
-  },
-  {
-    id: 6,
-    titulo: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizza
-  }
-]
+const Perfil = () => {
+  const { id } = useParams()
 
-const Perfil = () => (
-  <>
-    <Header />
-    <Hero />
-    <ProductPerfil carrinho={itens} />
-  </>
-)
+  const [menu, setCardapio] = useState<Cardapio[]>([])
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setCardapio(res?.cardapio))
+  }, [id])
+
+  return (
+    <>
+      <Header />
+      <Hero />
+      <CardCardapio items={menu} />
+    </>
+  )
+}
 
 export default Perfil
