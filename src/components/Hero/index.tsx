@@ -4,20 +4,22 @@ import BannerItaliana from '../../assets/images/BannerItaliana.png'
 import { ProdutoNaHome } from '../../pages/Home'
 import { useParams } from 'react-router-dom'
 
+import { useGetHeroQuery } from '../../services/api'
+
 export type Props = {
   restaurantes: ProdutoNaHome
 }
 
 const Hero = () => {
   const { id } = useParams()
+  const { data: hero } = useGetHeroQuery(id!)
 
-  const [hero, setHero] = useState<ProdutoNaHome>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setHero(res))
-  }, [id])
+  // const [hero, setHero] = useState<ProdutoNaHome>()
+  // useEffect(() => {
+  //   fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+  //     .then((res) => res.json())
+  //     .then((res) => setHero(res))
+  // }, [id])
 
   if (!hero) {
     return <h3>Carregando...</h3>

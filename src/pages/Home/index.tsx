@@ -3,6 +3,8 @@ import BannerHome from '../../components/Banner'
 
 import { useEffect, useState } from 'react'
 
+import { useGetHomeQuery } from '../../services/api'
+
 export interface Cardapio {
   foto: string
   preco: number
@@ -24,20 +26,24 @@ export interface ProdutoNaHome {
 }
 
 const Home = () => {
-  const [restaurantes, setRestaurantes] = useState<ProdutoNaHome[]>([])
+  const { data: home } = useGetHomeQuery()
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setRestaurantes(res))
-  }, [])
+  // const [restaurantes, setRestaurantes] = useState<ProdutoNaHome[]>([])
+  // useEffect(() => {
+  //   fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+  //     .then((res) => res.json())
+  //     .then((res) => setRestaurantes(res))
+  // }, [])
 
-  return (
-    <>
-      <BannerHome />
-      <HomeLista restaurantes={restaurantes} />
-    </>
-  )
+  if (home) {
+    return (
+      <>
+        <BannerHome />
+        <HomeLista restaurantes={home} />
+      </>
+    )
+  }
+  return <h4>Carregando...</h4>
 }
 
 export default Home

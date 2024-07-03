@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux'
 import Button from '../../Button'
 import {
   ButtonContainer,
@@ -5,36 +6,36 @@ import {
   ContainerModal,
   Descricao,
   Modal,
+  ModalItem,
   Title
 } from './styles'
 import { useState } from 'react'
+import { open, add } from '../../../store/reducers/cart'
+import { Cardapio } from '../../../pages/Home'
 
 type Props = {
-  preco: number
-  foto: string
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
+  menu: Cardapio
 }
 
 type ModalState = {
   isVisible: boolean
 }
 
-const Products = ({ foto, descricao, id, nome, porcao, preco }: Props) => {
+export const formataPreco = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
+
+const Products = ({ menu }: Props) => {
+  const dispatch = useDispatch()
+
   const getDescricao = (descricao: string) => {
     if (descricao.length > 95) {
       return descricao.slice(0, 92) + '...'
     }
     return descricao
-  }
-
-  const formataPreco = (preco = 0) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
   }
 
   const [modal, setModal] = useState<ModalState>({
@@ -47,12 +48,17 @@ const Products = ({ foto, descricao, id, nome, porcao, preco }: Props) => {
     })
   }
 
+  const addToCart = () => {
+    dispatch(add(menu))
+    dispatch(open())
+  }
+
   return (
     <>
       <Card>
         <img
-          src={foto}
-          alt={nome}
+          src={menu.foto}
+          alt={menu.nome}
           onClick={() =>
             setModal({
               isVisible: true
@@ -60,34 +66,38 @@ const Products = ({ foto, descricao, id, nome, porcao, preco }: Props) => {
           }
         />
         <div>
-          <Title>{nome}</Title>
-          <Descricao>{getDescricao(descricao)}</Descricao>
+          <Title>{menu.nome}</Title>
+          <Descricao>{getDescricao(menu.descricao)}</Descricao>
           <ButtonContainer
             type="button"
-            title="Adicionar ao Carrinho"
+            title="clique aqui para saber mais sobre o produto"
             onClick={() =>
               setModal({
                 isVisible: true
               })
             }
           >
-            Adicionar ao Carrinho
+            Mais Detalhes
           </ButtonContainer>
         </div>
       </Card>
       <Modal className={modal.isVisible ? 'visivel' : ''}>
         <ContainerModal className="container">
-          <div>
-            <img src={foto} alt="" />
-          </div>
-          <div>
-            <h3>{nome}</h3>
-            <p>{descricao}</p>
-            <p>Serve:{porcao}</p>
-            <ButtonContainer type="button" title="Adicionar ao Carrinho">
-              Adicionar ao Carrinho {formataPreco(preco)}
-            </ButtonContainer>
-          </div>
+          <ModalItem>
+            <img src={menu.foto} alt="" />
+            <div>
+              <h3>{menu.nome}</h3>
+              <p>{menu.descricao}</p>
+              <p>Serve:{menu.porcao}</p>
+              <ButtonContainer
+                onClick={addToCart}
+                type="button"
+                title="Adicionar ao Carrinho"
+              >
+                Adicionar ao Carrinho {formataPreco(menu.preco)}
+              </ButtonContainer>
+            </div>
+          </ModalItem>
         </ContainerModal>
         <div className="overlay" onClick={() => closeModal()}></div>
       </Modal>

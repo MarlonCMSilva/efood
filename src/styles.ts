@@ -7,6 +7,12 @@ export const cores = {
   branca: '#fff'
 }
 
+export const breakPoint = {
+  desktop: '1024px',
+  tablet: '768px',
+  cel: '425px'
+}
+
 export const GlobalCss = createGlobalStyle`
   * {
     margin: 0;
@@ -25,5 +31,11 @@ export const GlobalCss = createGlobalStyle`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+
+  @media(max-width: ${breakPoint.desktop}){
+    max-width: 70%;
+    }
   }
+
+
   `

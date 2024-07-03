@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakPoint, cores } from '../../styles'
 
 export const BannerHero = styled.div`
   position: relative;
@@ -12,6 +12,16 @@ export const BannerHero = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  @media (max-width: ${breakPoint.desktop}) {
+    width: 768px;
+    height: 200px;
+  }
+
+  @media (max-width: ${breakPoint.cel}) {
+    width: 420px;
+    height: 200px;
+  }
 
   &::after {
     position: absolute;
@@ -36,22 +46,18 @@ export const BannerHero = styled.div`
   h2 {
     font-size: 32px;
     font-weight: bold;
+
+    @media (max-width: ${breakPoint.tablet}) {
+      font-size: 20px;
+    }
   }
 
   p {
     font-size: 32px;
     font-weight: 100;
+
+    @media (max-width: ${breakPoint.tablet}) {
+      font-size: 20px;
+    }
   }
-`
-
-export const Titulo = styled.h1`
-  font-size: 32px;
-  font-weight: bold;
-  margin-top: 200px;
-  position: absolute;
-  color: ${cores.branca};
-`
-
-export const Pratos = styled.p`
-  font-size: 32px;
 `

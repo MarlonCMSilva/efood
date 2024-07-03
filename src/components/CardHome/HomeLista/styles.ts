@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../../styles'
+import { breakPoint, cores } from '../../../styles'
 import { ButtonLink } from '../../Button/styles'
 import { Link } from 'react-router-dom'
 
@@ -11,8 +11,16 @@ export const Card = styled(Link)`
   text-decoration: none;
   display: block;
 
+  @media (max-width: ${breakPoint.desktop}) {
+    width: 100%;
+  }
+
   ${ButtonLink} {
     text-decoration: none;
+
+    @media (max-width: ${breakPoint.desktop}) {
+      justify-content: flex-end;
+    }
   }
 
   > img {
@@ -20,6 +28,10 @@ export const Card = styled(Link)`
     width: 100%;
     height: 220px;
     object-fit: cover;
+
+    @media (max-width: ${breakPoint.desktop}) {
+      width: 100%;
+    }
   }
 `
 
@@ -28,9 +40,19 @@ export const ContainerTitulo = styled.div`
   justify-content: space-between;
   margin-top: 8px;
 
+  @media (max-width: ${breakPoint.desktop}) {
+    margin-top: 4px;
+    text-align: center;
+  }
+
   img {
     height: 20px;
     padding-left: 8px;
+
+    @media (max-width: ${breakPoint.desktop}) {
+      height: 12px;
+      padding-left: 4px;
+    }
   }
 `
 
@@ -38,8 +60,11 @@ export const Title = styled.h3`
   color: ${cores.rosa};
   font-size: 18px;
   font-weight: bold;
-  margin-top: 8px;
   padding-left: 8px;
+
+  @media (max-width: ${breakPoint.desktop}) {
+    font-size: 12px;
+  }
 `
 
 export const Nota = styled.p`
@@ -47,6 +72,10 @@ export const Nota = styled.p`
   font-size: 18px;
   font-weight: bold;
   padding-right: 8px;
+
+  @media (max-width: ${breakPoint.desktop}) {
+    font-size: 12px;
+  }
 `
 export const NotaImagem = styled.img``
 
@@ -61,6 +90,11 @@ export const Descricao = styled.p`
   display: flex;
   padding-right: 8px;
   padding-left: 8px;
+
+
+  @media (max-width: ${breakPoint.desktop}) {
+    font-size: 12px;
+  }
 `
 
 export const Infos = styled.div`
@@ -79,4 +113,14 @@ export const TagContainer = styled.div`
   font-size: 12px;
   font-weight: bold;
   padding: 8px 16px;
+
+  @media (max-width: ${breakPoint.desktop}) {
+  display: inline-block;
+  margin-right: 8px;
+  margin-top: 4px;
+  width: 32px
+  font-size: 6px;
+  font-weight: bold;
+  padding: 8px 8px;
+  }
 `
