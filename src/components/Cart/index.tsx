@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
 import { useDispatch, useSelector } from 'react-redux'
 import InputMask from 'react-input-mask'
@@ -8,21 +8,21 @@ import Button from '../Button'
 import Card from '../Card'
 
 import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
+import { clear, close, remove } from '../../store/reducers/cart'
 import { usePurchaseMutation } from '../../services/api'
 import { parseToBrl } from '../utils'
 
 import * as S from './styles'
 
 const Cart = () => {
-  const dispacth = useDispatch()
+  const dispatch = useDispatch()
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const [carrinho, setCarrinho] = useState(true)
   const [entrega, setEntrega] = useState(true)
   const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
 
   const closeCart = () => {
-    dispacth(close())
+    dispatch(close())
   }
 
   const getTotalPrice = () => {
@@ -32,8 +32,14 @@ const Cart = () => {
   }
 
   const removeItem = (id: number) => {
-    dispacth(remove(id))
+    dispatch(remove(id))
   }
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clear())
+    }
+  }, [dispatch, isSuccess])
 
   const form = useFormik({
     initialValues: {
@@ -64,8 +70,7 @@ const Cart = () => {
         .max(9, 'O CEP precisa ter no maximo 8 caracteres')
         .required('O Campo é obrigatorio'),
       numberAddress: Yup.number()
-        .min(2, 'O Campo precisa ter mais que 2 caracteres')
-        .max(111111, 'O Campo requer uma informação pequena')
+        .min(1, 'O Campo precisa ter mais que 2 caracteres')
         .required('O Campo é obrigatorio'),
 
       addressComplement: Yup.string()
