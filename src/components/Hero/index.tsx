@@ -1,18 +1,21 @@
-import { useEffect, useState } from 'react'
-import { BannerHero } from './styles'
-import BannerItaliana from '../../assets/images/BannerItaliana.png'
-import { ProdutoNaHome } from '../../pages/Home'
 import { useParams } from 'react-router-dom'
 
 import { useGetHeroQuery } from '../../services/api'
+
+import { BannerHero } from './styles'
+import Loader from '../Loader'
+
+type RestaurantParams = {
+  id: string
+}
 
 export type Props = {
   restaurantes: ProdutoNaHome
 }
 
 const Hero = () => {
-  const { id } = useParams()
-  const { data: hero } = useGetHeroQuery(id!)
+  const { id } = useParams() as RestaurantParams
+  const { data: hero } = useGetHeroQuery(id)
 
   // const [hero, setHero] = useState<ProdutoNaHome>()
   // useEffect(() => {
@@ -22,7 +25,7 @@ const Hero = () => {
   // }, [id])
 
   if (!hero) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (

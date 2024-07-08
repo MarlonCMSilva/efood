@@ -1,23 +1,32 @@
 import Products from '../CardapioLista'
 import { Container, List } from './style'
-import { Cardapio } from '../../../pages/Home'
+
+import Loader from '../../Loader'
 
 export type Props = {
-  items: Cardapio[]
+  items?: Cardapio[]
+  isLoading: boolean
 }
 
-const CardCardapio = ({ items }: Props) => (
-  <Container>
-    <div className="container">
-      <List>
-        {items.map((items) => (
-          <li key={items.id}>
-            <Products menu={items} />
-          </li>
-        ))}
-      </List>
-    </div>
-  </Container>
-)
+const CardCardapio = ({ items, isLoading }: Props) => {
+  if (isLoading) {
+    return <Loader />
+  }
+
+  return (
+    <Container>
+      <div className="container">
+        <List>
+          {items &&
+            items.map((items) => (
+              <li key={items.id}>
+                <Products menu={items} isLoading={isLoading} />
+              </li>
+            ))}
+        </List>
+      </div>
+    </Container>
+  )
+}
 
 export default CardCardapio

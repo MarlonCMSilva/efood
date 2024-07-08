@@ -1,29 +1,27 @@
 import styled from 'styled-components'
-import { breakPoint, cores } from '../styles'
+import { breakPoint, colors } from '../styles'
 
 export const Container = styled.footer`
   width: 100%;
   height: 260px;
   padding: 32px 0;
 
-  @media (max-width: ${breakPoint.desktop}) {
-    display: flex;
-    max-width: 768px;
+  @media (min-width: ${breakPoint.tablet}) {
   }
 `
 
 export const SectionLogo = styled.div`
-  padding-top: 40px;
   display: flex;
+  padding-top: 40px;
   margin-left: 440px;
   margin-bottom: 32px;
 
   @media (max-width: ${breakPoint.desktop}) {
-    margin-left: 220px;
+    margin-left: 300px;
   }
 
-  @media (max-width: ${breakPoint.cel}) {
-    margin-left: 120px;
+  @media (max-width: ${breakPoint.tablet}) {
+    margin-left: 180px;
   }
 `
 
@@ -32,17 +30,22 @@ export const SectionSocial = styled.section`
   margin-right: 460px;
   padding-right: 8px;
 
-  @media (max-width: ${breakPoint.desktop}) {
-    margin-left: 220px;
+  @media (min-width: ${breakPoint.desktop}) {
+    margin-left: 300px;
   }
 
-  @media (max-width: ${breakPoint.cel}) {
-    margin-left: 120px;
+  @media (max-width: ${breakPoint.tablet}) {
+    margin-left: 180px;
   }
 `
 
 export const Links = styled.ul`
   display: flex;
+  margin-left: 142px;
+
+  @media (max-width: ${breakPoint.tablet}) {
+    margin-left: 12px;
+  }
 `
 export const Link = styled.li`
   align-items: center;
@@ -54,7 +57,7 @@ export const SectionDescription = styled.section`
 `
 
 export const Description = styled.p`
-  color: ${cores.rosa};
+  color: ${colors.pink};
   text-align: center;
   line-height: 12px;
   font-size: 10px;

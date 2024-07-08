@@ -1,46 +1,39 @@
-import {
-  Container,
-  Description,
-  Link,
-  Links,
-  SectionDescription,
-  SectionLogo,
-  SectionSocial
-} from './styles'
 import FooterImagem from '../assets/images/footer.png'
 import logo from '../assets/images/logo.svg'
 import facebook from '../assets/images/facebook.png'
 import x from '../assets/images/x.png'
 import instagram from '../assets/images/instagram.png'
 
+import * as S from './styles'
+
 const Footer = () => (
-  <Container style={{ background: `url(${FooterImagem})` }}>
+  <S.Container style={{ background: `url(${FooterImagem})` }}>
     <div className="container">
-      <SectionLogo>
+      <S.SectionLogo>
         <img src={logo} alt="" />
-      </SectionLogo>
-      <SectionSocial>
-        <Links>
-          <Link>
+      </S.SectionLogo>
+      <S.SectionSocial>
+        <S.Links>
+          <S.Link>
             <img src={facebook} alt="" />
-          </Link>
-          <Link>
+          </S.Link>
+          <S.Link>
             <img src={x} alt="" />
-          </Link>
-          <Link>
+          </S.Link>
+          <S.Link>
             <img src={instagram} alt="" />
-          </Link>
-        </Links>
-      </SectionSocial>
-      <SectionDescription>
-        <Description>
+          </S.Link>
+        </S.Links>
+      </S.SectionSocial>
+      <S.SectionDescription>
+        <S.Description>
           A efood é uma plataforma para divulgação de estabelecimentos, a
           responsabilidade pela entrega, qualidade dos produtos é toda do
           estabelecimento contratado.
-        </Description>
-      </SectionDescription>
+        </S.Description>
+      </S.SectionDescription>
     </div>
-  </Container>
+  </S.Container>
 )
 
 export default Footer

@@ -1,21 +1,21 @@
 import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const ButtonContainer = styled.button`
   max-width: 300px;
-  background-color: ${cores.textoBotao};
-  color: ${cores.rosa};
+  background-color: ${colors.lightPink};
+  color: ${colors.pink};
   font-size: 14px;
   font-weight: bold;
   padding: 8px 16px;
-  border: 1px solid ${cores.rosa};
+  border: 1px solid ${colors.pink};
 `
 
 export const ButtonLink = styled(Link)`
-  background-color: ${cores.rosa};
-  color: ${cores.textoBotao};
+  background-color: ${colors.pink};
+  color: ${colors.lightPink};
   font-size: 14px;
   font-weight: bold;
   padding: 8px 16px;

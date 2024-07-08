@@ -1,16 +1,18 @@
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 
 import Hero from '../../components/Hero'
-import CardCardapio from '../../components/CardCardapio/Cardapio'
 import Header from '../../components/Header'
-import { Cardapio, ProdutoNaHome } from '../Home'
+import CardCardapio from '../../components/CardCardapio/Cardapio'
 
 import { useGetMenuQuery } from '../../services/api'
 
+type RestaurantParams = {
+  id: string
+}
+
 const Perfil = () => {
-  const { id } = useParams()
-  const { data: menu } = useGetMenuQuery(id!)
+  const { id } = useParams() as RestaurantParams
+  const { data: menu, isLoading: isLoadingPerfil } = useGetMenuQuery(id)
 
   // const [menu, setCardapio] = useState<Cardapio[]>([])
   // useEffect(() => {
@@ -19,16 +21,13 @@ const Perfil = () => {
   //     .then((res) => setCardapio(res?.cardapio))
   // }, [id])
 
-  if (menu) {
-    return (
-      <>
-        <Header />
-        <Hero />
-        <CardCardapio items={menu} />
-      </>
-    )
-  }
-  return <h4>Carregando...</h4>
+  return (
+    <>
+      <Header />
+      <Hero />
+      <CardCardapio items={menu} isLoading={isLoadingPerfil} />
+    </>
+  )
 }
 
 export default Perfil

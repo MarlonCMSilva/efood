@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { breakPoint, cores } from '../../styles'
+import { breakPoint, colors } from '../../styles'
 
-export const ImagemBanner = styled.div`
+export const BannerImage = styled.div`
   width: 100%;
   height: 280px;
   display: block;
@@ -15,10 +15,10 @@ export const ImagemBanner = styled.div`
   }
 `
 
-export const Titulo = styled.h1`
+export const Title = styled.h1`
   font-size: 36px;
   font-weight: bold;
-  color: ${cores.rosa};
+  color: ${colors.pink};
   text-align: center;
   max-width: 540px;
   padding-top: 120px;

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakPoint, cores } from '../../styles'
+import { breakPoint, colors } from '../../styles'
 
 export const BannerHero = styled.div`
   position: relative;
@@ -7,19 +7,23 @@ export const BannerHero = styled.div`
   height: 280px;
   display: block;
   margin-bottom: 20px;
-  color: ${cores.branca};
+  color: ${colors.white};
 
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
   @media (max-width: ${breakPoint.desktop}) {
-    width: 768px;
     height: 200px;
   }
 
+  @media (max-width: ${breakPoint.tablet}) {
+    width: 768px;
+    height: 160px;
+  }
+
   @media (max-width: ${breakPoint.cel}) {
-    width: 420px;
+    width: 425px;
     height: 200px;
   }
 

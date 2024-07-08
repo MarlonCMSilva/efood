@@ -1,15 +1,7 @@
 import Button from '../../Button'
 import estrela from '../../../assets/images/estrela.png'
 
-import {
-  Card,
-  Nota,
-  Descricao,
-  Title,
-  Infos,
-  ContainerTitulo,
-  TagContainer
-} from './styles'
+import * as S from './styles'
 
 type Props = {
   titulo: string
@@ -31,26 +23,26 @@ const HomeLista = ({
   id
 }: Props) => (
   <>
-    <Card to={`/restaurantes/${id}`}>
+    <S.Card to={`/restaurantes/${id}`}>
       <img src={image} alt={titulo} />
-      <Infos>
+      <S.Infos>
         {destacado === true ? (
           <>
-            <TagContainer>Destaque do Dia</TagContainer>
-            <TagContainer>{tipo}</TagContainer>
+            <S.TagContainer>Destaque do Dia</S.TagContainer>
+            <S.TagContainer>{tipo}</S.TagContainer>
           </>
         ) : (
-          <TagContainer>{tipo}</TagContainer>
+          <S.TagContainer>{tipo}</S.TagContainer>
         )}
-      </Infos>
-      <ContainerTitulo>
-        <Title>{titulo}</Title>
-        <Nota>
+      </S.Infos>
+      <S.ContainerTitulo>
+        <S.Title>{titulo}</S.Title>
+        <S.Nota>
           {avaliacao}
           <img src={estrela} alt="" />
-        </Nota>
-      </ContainerTitulo>
-      <Descricao>{descricao}</Descricao>
+        </S.Nota>
+      </S.ContainerTitulo>
+      <S.Descricao>{descricao}</S.Descricao>
       <Button
         type="link"
         to={`/restaurantes/${id}`}
@@ -58,7 +50,7 @@ const HomeLista = ({
       >
         Saiba mais
       </Button>
-    </Card>
+    </S.Card>
   </>
 )
 

@@ -1,32 +1,10 @@
 import HomeLista from '../../components/CardHome/Home'
 import BannerHome from '../../components/Banner'
 
-import { useEffect, useState } from 'react'
-
 import { useGetHomeQuery } from '../../services/api'
 
-export interface Cardapio {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
-
-export interface ProdutoNaHome {
-  id: number
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: number
-  descricao: string
-  capa: string
-  cardapio: Cardapio[]
-}
-
 const Home = () => {
-  const { data: home } = useGetHomeQuery()
+  const { data: home, isLoading } = useGetHomeQuery()
 
   // const [restaurantes, setRestaurantes] = useState<ProdutoNaHome[]>([])
   // useEffect(() => {
@@ -35,15 +13,12 @@ const Home = () => {
   //     .then((res) => setRestaurantes(res))
   // }, [])
 
-  if (home) {
-    return (
-      <>
-        <BannerHome />
-        <HomeLista restaurantes={home} />
-      </>
-    )
-  }
-  return <h4>Carregando...</h4>
+  return (
+    <>
+      <BannerHome />
+      <HomeLista restaurantes={home} isLoading={isLoading} />
+    </>
+  )
 }
 
 export default Home

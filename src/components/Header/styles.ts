@@ -1,31 +1,6 @@
 import styled from 'styled-components'
-import { breakPoint, cores } from '../../styles'
+import { breakPoint, colors } from '../../styles'
 import { Link } from 'react-router-dom'
-
-export const HeaderBar = styled.header`
-  width: 100%;
-  height: 186px;
-  display: flex;
-
-  @media (max-width: ${breakPoint.desktop}) {
-    height: 120px;
-  }
-
-  img {
-    display: flex;
-
-    @media (max-width: ${breakPoint.desktop}) {
-      width: 80px;
-    }
-
-    @media (max-width: ${breakPoint.cel}) {
-      width: 60px;
-    }
-  }
-  nav {
-    align-item: center;
-  }
-`
 
 export const Links = styled.ul`
   display: flex;
@@ -34,26 +9,86 @@ export const Links = styled.ul`
   align-items: center;
 
   @media (max-width: ${breakPoint.cel}) {
-    justify-content: space-between;
+    margin-top: 10px;
+    align-items: center;
+    display: flex;
   }
 `
+
 export const LinkItem = styled(Link)`
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  color: ${cores.rosa};
+  color: ${colors.pink};
+`
+
+export const HeaderBar = styled.header`
+  flex-direction: column;
+  width: 100%;
+  height: 186px;
+  display: flex;
+
+  img {
+    display: flex;
+  }
+
+  nav {
+    align-item: center;
+
+    @media (max-width: ${breakPoint.cel}) {
+      display: none;
+    }
+  }
 
   @media (max-width: ${breakPoint.cel}) {
-    font-size: 12px;
+    height: 120px;
   }
 `
+export const HeaderRow = styled.div`
+  flex-direction: column;
+`
+
+export const Hamburguer = styled.div`
+  display: none;
+  width: 32px;
+  margin-top: 20px;
+
+  span {
+    height: 2px;
+    display: block;
+    width: 100%;
+    background-color: ${colors.pink};
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: ${breakPoint.cel}) {
+    display: block;
+  }
+`
+export const imageIcon = styled.span`
+  display: none;
+
+  @media (max-width: ${breakPoint.cel}) {
+    height: 32px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+`
+
+export const NavMobile = styled.nav`
+  display: none;
+
+  &.is-open {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`
+
 export const LinkCarrinho = styled.li`
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  color: ${cores.rosa};
-
-  @media (max-width: ${breakPoint.cel}) {
-    font-size: 12px;
-  }
+  color: ${colors.pink};
 `

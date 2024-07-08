@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { breakPoint, cores } from '../../../styles'
+import { breakPoint, colors } from '../../../styles'
 import { ButtonLink } from '../../Button/styles'
 import { Link } from 'react-router-dom'
 
 export const Card = styled(Link)`
-  border: 1px solid ${cores.rosa};
+  border: 1px solid ${colors.pink};
   position: relative;
   width: 100%;
   height: 100%;
@@ -57,7 +57,7 @@ export const ContainerTitulo = styled.div`
 `
 
 export const Title = styled.h3`
-  color: ${cores.rosa};
+  color: ${colors.pink};
   font-size: 18px;
   font-weight: bold;
   padding-left: 8px;
@@ -68,7 +68,7 @@ export const Title = styled.h3`
 `
 
 export const Nota = styled.p`
-  color: ${cores.rosa};
+  color: ${colors.pink};
   font-size: 18px;
   font-weight: bold;
   padding-right: 8px;
@@ -81,7 +81,7 @@ export const NotaImagem = styled.img``
 
 export const Descricao = styled.p`
   font-size: 14px;
-  color: ${cores.rosa};
+  color: ${colors.pink};
   line-height: 22px;
   width: 420px
   height: 88px;
@@ -104,8 +104,8 @@ export const Infos = styled.div`
 `
 
 export const TagContainer = styled.div`
-  background-color: ${cores.rosa};
-  color: ${cores.textoBotao};
+  background-color: ${colors.pink};
+  color: ${colors.lightPink};
   display: inline-block;
   margin-right: 16px;
   margin-top: 10px;

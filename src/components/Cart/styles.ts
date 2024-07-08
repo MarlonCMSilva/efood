@@ -1,9 +1,17 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
 
-import lixeira from '../../assets/images/lixeira.png'
-import { TagContainer } from '../Tag/styles'
+import garbage from '../../assets/images/lixeira.png'
+
 import { ButtonContainer } from '../Button/styles'
+import { colors } from '../../styles'
+
+type RowProps = {
+  flexDirection?: string
+}
+
+type InputGroupProps = {
+  maxWidth?: string
+}
 
 export const Overlay = styled.div`
   position: relative;
@@ -16,7 +24,7 @@ export const Overlay = styled.div`
 `
 
 export const CartContainer = styled.div`
-  color: ${cores.rosa};
+  color: ${colors.pink};
   position: fixed;
   top: 0;
   left: 0;
@@ -29,10 +37,18 @@ export const CartContainer = styled.div`
   &.is-open {
     display: flex;
   }
+
+  .empty-text {
+    font-size: 16px;
+    line-height: 22px;
+    color: ${colors.lightPink};
+    text-align: center;
+    margin-top: 20px;
+  }
 `
 
 export const SideBar = styled.aside`
-  background-color: ${cores.rosa};
+  background-color: ${colors.pink};
   z-index: 1;
   max-width: 360px;
   width: 100%;
@@ -53,10 +69,10 @@ export const SideBar = styled.aside`
 
 export const CartItem = styled.li`
   display: flex;
-  background-color: ${cores.textoBotao};
+  background-color: ${colors.lightPink};
   max-width: 340px;
   width: 100%;
-  color: ${cores.rosa};
+  color: ${colors.pink};
   margin-bottom: 16px;
 
   img {
@@ -74,7 +90,7 @@ export const CartItem = styled.li`
   }
 
   button {
-    background-image: url(${lixeira});
+    background-image: url(${garbage});
     width: 16px;
     height: 16px;
     border: none;
@@ -86,11 +102,54 @@ export const CartItem = styled.li`
 `
 
 export const Price = styled.p`
-  color: ${cores.textoBotao};
+  color: ${colors.lightPink};
   display: flex;
   justify-content: space-between;
   padding-right: 8px;
   padding-left: 8px;
   margin-top: 40px;
   margin-bottom: 16px;
+`
+
+export const Row = styled.div<RowProps>`
+  display: flex;
+  flex-direction: ${(props) => props.flexDirection};
+  width: 100%;
+`
+
+export const InputGroup = styled.div<InputGroupProps>`
+  font-size: 14px;
+  font-weight: bold;
+  align-items: flex-end;
+  color: ${colors.white};
+
+  max-width: ${(props) => props.maxWidth || 'auto'};
+  width: 100%;
+
+  .margin-left {
+    margin-left: 34px;
+  }
+
+  label {
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  input {
+    margin-bottom: 8px;
+    backgroun-color: ${colors.white};
+    border: 1px solid ${colors.pink};
+    width: 100%;
+    height: 34px;
+
+    &.error {
+      border: 2px solid red;
+    }
+  }
+`
+
+export const Paragrafo = styled.p`
+  font-size: 14px;
+  line-weight: 22px;
+  color: ${colors.white};
 `

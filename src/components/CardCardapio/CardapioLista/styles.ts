@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { breakPoint, cores } from '../../../styles'
+import { breakPoint, colors } from '../../../styles'
 
 export const Card = styled.div`
-  background-color: ${cores.rosa};
+  background-color: ${colors.pink};
   padding: 8px;
   width: 320px;
   height: 100%;
@@ -34,7 +34,7 @@ export const Card = styled.div`
 `
 
 export const Title = styled.h3`
-  color: ${cores.textoBotao};
+  color: ${colors.lightPink};
   font-size: 18px;
   margin-bottom: 8px;
 
@@ -43,8 +43,8 @@ export const Title = styled.h3`
   }
 `
 
-export const Descricao = styled.p`
-  color: ${cores.textoBotao};
+export const Description = styled.p`
+  color: ${colors.lightPink};
   font-size: 14px;
   line-height: 22px;
   width: 304px;
@@ -65,15 +65,15 @@ export const Descricao = styled.p`
 `
 
 export const ButtonContainer = styled.button`
-  border: 1px solid ${cores.rosa};
+  border: 1px solid ${colors.pink};
   width: 100%;
   max-width: 300px;
-  background-color: ${cores.textoBotao};
-  color: ${cores.rosa};
+  background-color: ${colors.lightPink};
+  color: ${colors.pink};
   font-size: 14px;
   font-weight: bold;
   padding: 8px 16px;
-  border: 1px solid ${cores.rosa};
+  border: 1px solid ${colors.pink};
 
   @media (max-width: ${breakPoint.desktop}) {
     font-size: 12px;
@@ -105,7 +105,7 @@ export const Modal = styled.div`
   }
 `
 export const ContainerModal = styled.div`
-  background-color: ${cores.rosa};
+  background-color: ${colors.pink};
   height: 340px;
   z-index: 1;
 
@@ -120,12 +120,13 @@ export const ContainerModal = styled.div`
     @media (max-width: ${breakPoint.tablet}) {
       margin-top: 10px;
     }
+  }
 
-    @media (max-width: ${breakPoint.cel}) {
-      width: 240px;
-      margin-top: 10px;
-      margin-left: 36px;
-    }
+  @media (max-width: ${breakPoint.cel}) {
+    width: 300px;
+    height: 500px;
+    margin-top: 10px;
+    margin-left: 36px;
   }
 `
 
@@ -156,7 +157,7 @@ img {
   }
 
   h3 {
-    color: ${cores.branca};
+    color: ${colors.white};
     margin-top: 32px;
 
     @media (max-width: ${breakPoint.cel}) {
@@ -167,7 +168,7 @@ img {
   }
 
   p {
-    color: ${cores.branca};
+    color: ${colors.white};
     width: 600px;
     line-height: 22px;
     font-size: 14px;
